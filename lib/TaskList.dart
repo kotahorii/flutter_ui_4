@@ -9,10 +9,33 @@ class TaskList extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          leadingWidth: 85,
+          leading: TextButton(
+            child: const Text(
+              'ログアウト',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12.0),
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
           title: const Text('タスク一覧'),
         ),
         body: ListView(
-          children: [],
+          children: [
+            Card(
+                child: Container(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('test'),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.delete))
+                      ],
+                    )))
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => {
