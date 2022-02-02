@@ -23,18 +23,10 @@ class TaskList extends StatelessWidget {
           title: const Text('タスク一覧'),
         ),
         body: ListView(
-          children: [
-            Card(
-                child: Container(
-                    padding: const EdgeInsets.all(10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text('test'),
-                        IconButton(
-                            onPressed: () {}, icon: const Icon(Icons.delete))
-                      ],
-                    )))
+          children: const [
+            TaskCard(
+              title: 'title1',
+            )
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -46,5 +38,36 @@ class TaskList extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class TaskCard extends StatelessWidget {
+  final String title;
+
+  const TaskCard({Key? key, required this.title}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        child: Container(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                      color: Colors.grey,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
+                ),
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.delete,
+                      color: Colors.grey,
+                    ))
+              ],
+            )));
   }
 }
